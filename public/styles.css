@@ -1,0 +1,190 @@
+/*
+block - acepta width and height (ocupa todo el ancho de la pantalla)
+inline - no acepta width and height (ocupa solo su tamaño, por ende solo un pedazo de la pantalla)
+inline block - tiene caracteristicas de block y de inline
+
+
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Prociono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Prociono&family=VT323&display=swap');
+
+
+body{
+    font-family: 'Prociono', serif;
+    background-color: rgb(101, 116, 131);
+    /* background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(./assets/fondo.jpg);
+    background-size: cover; */
+}
+
+ #seleccionar-personaje{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+
+}
+
+.titulo {
+    color: #ffffff;
+    font-size: 32px;
+}
+
+.subtitulo{
+    color: #ffffff;
+    font-size: 24px;
+}
+
+.tarjetas, .tarjetas-ataques{ /*se comparten los mismos estilos*/
+    display: flex;
+    gap: 10px;
+    font-family: 'Prociono', serif;
+    font-family: 'VT323', monospace;
+}
+
+.tarjeta-de-personaje{
+    cursor: pointer; /*Para que cambie el cursor a manita al pasar por el personaje*/
+    width: 180px;
+    height: 180px;
+    padding: 10px;
+    background:  rgb(167, 183, 202);
+    box-sizing: border-box; /*para que el padding no nos aumente tamaño a las (cajitas)*/
+    margin: 10px; /*separación entre personajes (cajitas)*/
+    border-radius: 30px;
+    border:solid brown;
+    display: flex;
+    flex-direction: column;
+    align-items: center;  
+
+}
+
+
+.tarjeta-de-personaje p{ /*Me refiero a una etiqueta dentro de esa clase*/
+    font-size: 28px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.tarjeta-de-personaje img{
+    width: 80px;
+    height: 100px;
+}
+
+input{
+    display: none; 
+} 
+
+input:checked + label{ /* el + es para seleccionar un elemento hermano*/
+    background: #95a3ac;
+}
+
+#boton-personaje{
+    cursor: pointer;
+    width: 170px;
+    height: 60px;
+    background: #70bcca;
+    padding: 10px;
+    box-sizing: border-box;
+    margin-top: 10px; /*separación entre personajes (cajitas)*/
+    border: 3px solid rgb(42, 165, 149);
+    border-radius: 10px;
+    font-family: 'VT323', monospace;
+    font-size: 32px;
+    align-items: center;
+}
+
+#seleccionar-ataque{
+    flex-direction: column;
+    align-items: center;
+}
+
+.boton-de-ataque{
+    cursor: pointer;
+    width: 115px;
+    height: 70px;
+    /*background: #70bcca;*/
+
+    border-color: transparent;
+    padding: 10px;
+    box-sizing: border-box;
+    margin: 10px;
+    border-radius: 80px;
+    font-family: 'VT323', monospace;
+    font-size: 32px;
+    align-items: center;
+}
+
+#mensajes{
+    width: 230px;
+    background: #70bcca;
+    border: 3px solid rgb(42, 165, 149);
+    padding: 10px;
+    border-radius: 10px;
+    font-family: 'VT323', monospace;
+    font-size: 21px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#boton-reiniciar{
+    border: transparent;
+    color: #000000;
+}
+
+.ataques{
+    display: grid;
+    grid-template-columns: 100px 100px;
+   
+}
+
+#vidas-jugador, #vidas-enemigo{ 
+    font-size: 32px;
+    margin-bottom: 0;
+}
+
+.ataques-jugador, .ataques-enemigo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#ver-mapa{
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#ver-mapa button{
+    user-select: none; /*para deshabilitar el seleccionado del texto en los botones*/
+    cursor: pointer;
+    width: 170px;
+    height: 60px;
+    background: #70bcca;
+    padding: 10px;
+    box-sizing: border-box;
+    margin-top: 5px; /*separación entre personajes (cajitas)*/
+    border: 3px solid rgb(42, 165, 149);
+    border-radius: 10px;
+    font-family: 'VT323', monospace;
+    font-size: 32px;
+    align-items: center;
+}
+
+
+/*Hacer responsive la aplicación*/
+@media (max-width: 560px){ /*max-width se refiere a que hasta ese limite, va a trabajar con la media query*/
+    .tarjetas, .tarjetas-ataques{
+        flex-direction: column;
+    }
+    
+}
+
+@media (max-width: 300px){ /*max-width se refiere a que hasta ese limite, va a trabajar con la media query*/
+    #ver-mapa div{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+    
+}
